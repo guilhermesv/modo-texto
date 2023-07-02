@@ -6,9 +6,9 @@
   <title>modo-texto</title>
   <style>
     .container {
-      font-family: mono;
-      max-width: 600px;
+      font-family: monospace;
       margin: auto;
+      text-align: center;
     }
     * {
       box-sizing: border-box;
@@ -18,15 +18,20 @@
       list-style: none;
       padding: 0;
       margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    li   {
-      margin-bottom: 1rem;
+    li {
+      margin: 1rem;
+      max-width: 512px;
     }
 
     img {
       display: block;
-      width: 100%;
+      width: 512px;
+      image-rendering: pixelated;
     }
   </style>
 </head>
