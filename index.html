@@ -1,65 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>modo-texto</title>
-  <style>
-    .container {
-      font-family: monospace;
-      margin: auto;
-      text-align: center;
-    }
-    * {
-      box-sizing: border-box;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>modo-texto</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #ff5555;
+        color: #0000aa;
+        font-family: mono, monospaces;
+        text-transform: uppercase;
+        padding: 2rem 0 6rem 0;
+      }
+
+      a,
+      a:visited {
+        color: #0000aa;
+      }
+
+      .container {
+        margin: auto;
+      }
+
+      .intro {
+        max-width: 60ch;
+        margin: auto;
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      li {
+        max-width: 512px;
+      }
+
+      img {
+        display: block;
+        width: 512px;
+        image-rendering: pixelated;
+      }
+
+      button  {
+        font-family: mono, monospace;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="intro">
+        <p>Caderno de desenhos em modo texto</p>
+        <p>
+          Para mais informações e ferramentas sobre o modo texto, consulte o site:
+          <a href="http://polyducks.co.uk/what-is-textmode/">http://polyducks.co.uk/what-is-textmode/</a>
+        </p>
+        <p>Todas as artes criadas aqui foram feitas com o progama <a href="https://github.com/blocktronics/moebius">Moebius</a></p>
+        <p><button onclick="misturar()">misturar</button></p>
+      </div>
+      <ul id="tapetes">
+        <li><img src="Tapete-32x32-01.png" alt="" /></li>
+        <li><img src="Tapete-32x32-02.png" alt="" /></li>
+        <li><img src="Tapete-32x32-03.png" alt="" /></li>
+        <li><img src="Tapete-32x32-04.png" alt="" /></li>
+        <li><img src="Tapete-32x32-05.png" alt="" /></li>
+        <li><img src="Tapete-32x32-06.png" alt="" /></li>
+        <li><img src="Tapete-32x32-07.png" alt="" /></li>
+        <li><img src="Tapete-32x32-08.png" alt="" /></li>
+        <li><img src="Tapete-32x32-09.png" alt="" /></li>
+        <li><img src="Tapete-32x32-10.png" alt="" /></li>
+        <li><img src="Tapete-32x32-11.png" alt="" /></li>
+        <li><img src="Tapete-32x32-12.png" alt="" /></li>
+        <li><img src="Tapete-32x32-13.png" alt="" /></li>
+        <li><img src="Tapete-32x32-14.png" alt="" /></li>
+        <li><img src="Tapete-32x32-15.png" alt="" /></li>
+      </ul>
+    </div>
+  </body>
+  <script>
+
+    
+
+    // https://web.archive.org/web/20210507010312/https://j11y.io/javascript/shuffling-the-dom/
+    // WARNING: I haven't yet tested this
+    // - It's likely that it will strip events upon shuffling
+    function shuffle(elems) {
+      allElems = (function () {
+        var ret = [],
+          l = elems.length;
+        while (l--) {
+          ret[ret.length] = elems[l];
+        }
+        return ret;
+      })();
+
+      var shuffled = (function () {
+          var l = allElems.length,
+            ret = [];
+          while (l--) {
+            var random = Math.floor(Math.random() * allElems.length),
+              randEl = allElems[random].cloneNode(true);
+            allElems.splice(random, 1);
+            ret[ret.length] = randEl;
+          }
+          return ret;
+        })(),
+        l = elems.length;
+
+      while (l--) {
+        elems[l].parentNode.insertBefore(shuffled[l], elems[l].nextSibling);
+        elems[l].parentNode.removeChild(elems[l]);
+      }
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    // Usage:
+    shuffle(document.getElementsByTagName("li"));
+
+    // Botão
+    function misturar() {
+      shuffle(document.getElementsByTagName("li"));
     }
 
-    li {
-      margin: 1rem;
-      max-width: 512px;
-    }
-
-    img {
-      display: block;
-      width: 512px;
-      image-rendering: pixelated;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <p>Caderno de rascunho de desenhos em modo texto.</p>
-  <p>
-    Para mais informações e ferramentas sobre o modo texto, consulte o site: 
-    <a href="http://polyducks.co.uk/what-is-textmode/">http://polyducks.co.uk/what-is-textmode/</a>
-  </p>
-
-  <ul>
-    <li><img src="Tapete-32x32-01.png" alt=""></li>
-    <li><img src="Tapete-32x32-02.png" alt=""></li>
-    <li><img src="Tapete-32x32-03.png" alt=""></li>
-    <li><img src="Tapete-32x32-04.png" alt=""></li>
-    <li><img src="Tapete-32x32-05.png" alt=""></li>
-    <li><img src="Tapete-32x32-06.png" alt=""></li>
-    <li><img src="Tapete-32x32-07.png" alt=""></li>
-    <li><img src="Tapete-32x32-08.png" alt=""></li>
-    <li><img src="Tapete-32x32-09.png" alt=""></li>
-    <li><img src="Tapete-32x32-10.png" alt=""></li>
-    <li><img src="Tapete-32x32-11.png" alt=""></li>
-    <li><img src="Tapete-32x32-12.png" alt=""></li>
-    <li><img src="Tapete-32x32-13.png" alt=""></li>
-    <li><img src="Tapete-32x32-14.png" alt=""></li>
-    <li><img src="Tapete-32x32-15.png" alt=""></li>
-  </ul>
-  </div>
-</body>
+  </script>
 </html>
