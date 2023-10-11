@@ -6,20 +6,29 @@
     <title>modo-texto</title>
     <style>
       * {
+        padding: 0;
+        margin: 0;
         box-sizing: border-box;
       }
 
+      :root{
+        /* --cor-base: #ff5555;
+        --cor-texto: #0000aa;  */
+        --cor-base: #000;
+        --cor-texto: #fff; 
+      }
       body {
-        background-color: #ff5555;
-        color: #0000aa;
-        font-family: mono, monospaces;
+        background-color: var(--cor-base);
+        color: var(--cor-texto);
+        font-family: monospaces;
         text-transform: uppercase;
-        padding: 2rem 0 6rem 0;
+        padding: 1rem 0.5rem 6rem 0.5rem;
+        font-family: 'Courier New', Courier, monospace;
       }
 
       a,
       a:visited {
-        color: #0000aa;
+        color: var(--cor-texto);
       }
 
       .container {
@@ -27,33 +36,78 @@
       }
 
       .intro {
-        max-width: 60ch;
+        /* max-width: 60ch; */
         margin: auto;
-        text-align: center;
+        text-align: left;
         margin-bottom: 3rem;
+        
+      }
+
+      @media screen and (min-width: 50rem) {
+        .intro {
+          display: flex;
+        }
+      }
+
+      .intro > * {
+        padding-right: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .intro > *:last-child {
+        padding-right: 0;
+      }
+
+      h1 {
+        font-size: 1rem;
+        font-weight: normal;
+      }
+
+      p {
+        max-width: 40ch;
+        display: block;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.76rem;
       }
 
       ul {
         list-style: none;
         padding: 0;
-        margin: 0;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
       }
 
       li {
-        max-width: 512px;
+        width: 100%;
+        background-color: aqua;
+        border: 10px groove #000;
+      }
+
+      @media screen and (min-width: 50rem) {
+        li {
+          width: calc(100% / 2);
+        }
+      }
+
+      @media screen and (min-width: 70rem) {
+        li {
+          width: calc(100% / 4);
+        }
       }
 
       img {
         display: block;
-        width: 512px;
+        width: 100%;
+        max-width: 100%;
         image-rendering: pixelated;
+        filter: grayscale(100) brightness(2) contrast(200%);
+        mix-blend-mode: multiply;
       }
 
       button  {
-        font-family: mono, monospace;
+        display: inline;
+        font-family: 'Courier New', Courier, monospace;
         text-transform: uppercase;
       }
     </style>
@@ -61,13 +115,13 @@
   <body>
     <div class="container">
       <div class="intro">
-        <p>Caderno de desenhos em modo texto</p>
+        <h1>Caderno de desenhos em modo texto</h1>
         <p>
           Para mais informações e ferramentas sobre o modo texto, consulte o site:
           <a href="http://polyducks.co.uk/what-is-textmode/">http://polyducks.co.uk/what-is-textmode/</a>
         </p>
-        <p>Todas as artes criadas aqui foram feitas com o progama <a href="https://github.com/blocktronics/moebius">Moebius</a></p>
-        <p><button onclick="misturar()">misturar</button></p>
+        <p>Todas as artes criadas aqui foram feitas com o programa <a href="https://github.com/blocktronics/moebius">Moebius</a></p>
+        <p style="text-align: right;"><button onclick="misturar()">misturar</button></p>
       </div>
       <ul id="tapetes">
         <li><img src="Tapete-32x32-01.png" alt="" /></li>
@@ -85,6 +139,16 @@
         <li><img src="Tapete-32x32-13.png" alt="" /></li>
         <li><img src="Tapete-32x32-14.png" alt="" /></li>
         <li><img src="Tapete-32x32-15.png" alt="" /></li>
+        <li><img src="Tapete-32x32-16.png" alt="" /></li>
+        <li><img src="Tapete-32x32-17.png" alt="" /></li>
+        <li><img src="Tapete-32x32-18.png" alt="" /></li>
+        <li><img src="Tapete-32x32-19.png" alt="" /></li>
+        <li><img src="Tapete-32x32-20.png" alt="" /></li>
+        <li><img src="Tapete-32x32-21.png" alt="" /></li>
+        <li><img src="Tapete-32x32-22.png" alt="" /></li>
+        <li><img src="Tapete-32x32-23.png" alt="" /></li>
+        <li><img src="Tapete-32x32-24.png" alt="" /></li>
+        <li><img src="Tapete-32x32-25.png" alt="" /></li>
       </ul>
     </div>
   </body>
