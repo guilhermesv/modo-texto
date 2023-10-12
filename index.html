@@ -9,21 +9,22 @@
         padding: 0;
         margin: 0;
         box-sizing: border-box;
+        image-rendering: pixelated;
       }
 
-      :root{
+      :root {
         /* --cor-base: #ff5555;
         --cor-texto: #0000aa;  */
-        --cor-base: #000;
-        --cor-texto: #fff; 
+        --cor-base: #ffffff;
+        --cor-texto: #26d616;
       }
       body {
         background-color: var(--cor-base);
         color: var(--cor-texto);
-        font-family: monospaces;
         text-transform: uppercase;
-        padding: 1rem 0.5rem 6rem 0.5rem;
-        font-family: 'Courier New', Courier, monospace;
+        padding: 1rem 0.5rem 1rem 0.5rem;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 1rem;
       }
 
       a,
@@ -36,16 +37,15 @@
       }
 
       .intro {
-        /* max-width: 60ch; */
         margin: auto;
         text-align: left;
         margin-bottom: 3rem;
-        
       }
 
       @media screen and (min-width: 50rem) {
         .intro {
-          display: flex;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
         }
       }
 
@@ -59,29 +59,28 @@
       }
 
       h1 {
-        font-size: 1rem;
         font-weight: normal;
       }
 
       p {
-        max-width: 40ch;
         display: block;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 0.76rem;
+        
       }
 
       ul {
         list-style: none;
-        padding: 0;
+        padding: 1rem 0;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        border-top: 0.8rem groove var(--cor-texto);
+        border-bottom: 0.8rem groove var(--cor-texto);
       }
 
       li {
         width: 100%;
-        background-color: aqua;
-        border: 10px groove #000;
+        border: 0.8rem groove var(--cor-texto);
       }
 
       @media screen and (min-width: 50rem) {
@@ -96,23 +95,67 @@
         }
       }
 
-      img {
+      .tapete {
         display: block;
         width: 100%;
         max-width: 100%;
-        image-rendering: pixelated;
         filter: grayscale(100) brightness(2) contrast(200%);
-        mix-blend-mode: multiply;
+        /* mix-blend-mode: multiply; */
       }
 
-      button  {
+      .tapete:hover {
+        cursor: pointer;
+        filter: grayscale(100) brightness(2) contrast(200%) invert(100%);
+      }
+
+      button {
         display: inline;
-        font-family: 'Courier New', Courier, monospace;
+        cursor: pointer;
+        font-family: "Courier New", Courier, monospace;
         text-transform: uppercase;
+        padding: 0.2rem 1rem;
+        border-radius: 1rem;
+        background-color: var(--cor-texto);
+        font-size: 1.2rem;
+        color: var(--cor-base);
+      }
+
+      footer {
+        padding: 2rem 0;
+        text-align: right;
+      }
+
+      #visualizador {
+        position: fixed;
+        background-color: red;
+        background-image: url(Tapete-32x32-03.png);
+        background-position: center;
+        background-size: 512px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      #visualizador.aberto {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      #visualizador button {
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
       }
     </style>
   </head>
   <body>
+    <div id="visualizador">
+      <button id="fechar">FECHAR</button>
+    </div>
     <div class="container">
       <div class="intro">
         <h1>Caderno de desenhos em modo texto</h1>
@@ -121,44 +164,44 @@
           <a href="http://polyducks.co.uk/what-is-textmode/">http://polyducks.co.uk/what-is-textmode/</a>
         </p>
         <p>Todas as artes criadas aqui foram feitas com o programa <a href="https://github.com/blocktronics/moebius">Moebius</a></p>
-        <p style="text-align: right;"><button onclick="misturar()">misturar</button></p>
+        <p style="text-align: right"><button onclick="misturar()">misturar</button></p>
       </div>
       <ul id="tapetes">
-        <li><img src="Tapete-32x32-01.png" alt="" /></li>
-        <li><img src="Tapete-32x32-02.png" alt="" /></li>
-        <li><img src="Tapete-32x32-03.png" alt="" /></li>
-        <li><img src="Tapete-32x32-04.png" alt="" /></li>
-        <li><img src="Tapete-32x32-05.png" alt="" /></li>
-        <li><img src="Tapete-32x32-06.png" alt="" /></li>
-        <li><img src="Tapete-32x32-07.png" alt="" /></li>
-        <li><img src="Tapete-32x32-08.png" alt="" /></li>
-        <li><img src="Tapete-32x32-09.png" alt="" /></li>
-        <li><img src="Tapete-32x32-10.png" alt="" /></li>
-        <li><img src="Tapete-32x32-11.png" alt="" /></li>
-        <li><img src="Tapete-32x32-12.png" alt="" /></li>
-        <li><img src="Tapete-32x32-13.png" alt="" /></li>
-        <li><img src="Tapete-32x32-14.png" alt="" /></li>
-        <li><img src="Tapete-32x32-15.png" alt="" /></li>
-        <li><img src="Tapete-32x32-16.png" alt="" /></li>
-        <li><img src="Tapete-32x32-17.png" alt="" /></li>
-        <li><img src="Tapete-32x32-18.png" alt="" /></li>
-        <li><img src="Tapete-32x32-19.png" alt="" /></li>
-        <li><img src="Tapete-32x32-20.png" alt="" /></li>
-        <li><img src="Tapete-32x32-21.png" alt="" /></li>
-        <li><img src="Tapete-32x32-22.png" alt="" /></li>
-        <li><img src="Tapete-32x32-23.png" alt="" /></li>
-        <li><img src="Tapete-32x32-24.png" alt="" /></li>
-        <li><img src="Tapete-32x32-25.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-01.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-02.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-03.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-04.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-05.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-06.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-07.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-08.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-09.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-10.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-11.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-12.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-13.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-14.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-15.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-16.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-17.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-18.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-19.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-20.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-21.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-22.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-23.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-24.png" alt="" /></li>
+        <li><img class="tapete" src="Tapete-32x32-25.png" alt="" /></li>
       </ul>
     </div>
+    <footer>
+      <a href="https://guilhermevieira.info">https://guilhermevieira.info</a>
+    </footer>
   </body>
   <script>
-
-    
-
+    // MISTURAR TAPETES
     // https://web.archive.org/web/20210507010312/https://j11y.io/javascript/shuffling-the-dom/
-    // WARNING: I haven't yet tested this
-    // - It's likely that it will strip events upon shuffling
+
     function shuffle(elems) {
       allElems = (function () {
         var ret = [],
@@ -187,14 +230,42 @@
         elems[l].parentNode.removeChild(elems[l]);
       }
     }
+    // shuffle(document.getElementsByTagName("li"));
 
-    // Usage:
-    shuffle(document.getElementsByTagName("li"));
-
-    // Botão
     function misturar() {
       shuffle(document.getElementsByTagName("li"));
+      visualizador_init();
     }
 
+    // VISUALIZADOR
+
+    let visualizador = document.getElementById("visualizador");
+    let tapetes = document.getElementsByClassName("tapete");
+
+    let fechar = document.getElementById("fechar");
+    fechar.addEventListener("click", function () {
+      visualizador.classList.remove("aberto");
+    });
+
+    function visualizador_init() {
+
+      visualizador.addEventListener("click", function () {
+        visualizador.classList.remove("aberto");
+      });
+
+      for (const t of tapetes) {
+        t.addEventListener("click", function () {
+          let img_src = this.getAttribute("src");
+          visualizador_abre(img_src);
+        });
+      }
+    }
+    visualizador_init();
+
+    function visualizador_abre(img_src) {
+      visualizador.classList.add("aberto");
+      // visualizador.style.backgroundImage = `url(${img_src})'`;
+      visualizador.setAttribute("style", `background-image: url(${img_src})`);
+    }
   </script>
 </html>
